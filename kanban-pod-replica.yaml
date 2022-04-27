@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: kanban-rs
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: kanban 
+  template:
+    metadata:
+      labels:
+        app: kanban 
+    spec:
+      containers:
+        - name: kanban 
+          image: necromancerthedark/kanban_image
+          ports:
+            - containerPort: 80

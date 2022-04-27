@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kanban
+spec:
+  containers:
+    - name: kanban 
+      image: necromancerthedark/kanban_image
+      ports:
+        - containerPort: 80
