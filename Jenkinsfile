@@ -10,8 +10,6 @@ pipeline {
             steps{
                 sh '''
                 echo "running the tests ...."
-                yarn install
-                yarn test
                 '''
                  }
                 }
