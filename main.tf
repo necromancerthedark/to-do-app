@@ -1,11 +1,8 @@
-
 provider "aws" {
   region                   = "us-east-1"
   shared_credentials_files = ["~/.aws/credentials"]
   profile                  = "966185979698_PowerUser+IAM"
 }
-
-
 
 resource "aws_security_group" "the-nerd-herd-sg" {
   vpc_id = var.vpc_id
@@ -31,7 +28,7 @@ resource "aws_security_group" "the-nerd-herd-sg" {
 }
 
 resource "aws_s3_bucket" "the-nerd-herd-bucket" {
-  bucket = "my-tf-test-bucket"
+  bucket = "the-nerd-herd-bucket"
 
   tags = {
     Name        = "My bucket"
