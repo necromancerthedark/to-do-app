@@ -15,7 +15,7 @@
 
 - Drag-n-Drop cards and list
 - Material UI
-- Delete and Add Cards n Lists
+- Delete and Add Cards and Lists
 - Update/Edit List and Cards
 
   
