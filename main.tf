@@ -99,7 +99,7 @@ resource "aws_eks_node_group" "the-nerd-herd-node-group" {
 
   scaling_config {
     desired_size = 1
-    max_size     = 10
+    max_size     = 4
     min_size     = 1
   }
 
