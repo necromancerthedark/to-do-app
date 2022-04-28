@@ -4,6 +4,37 @@ provider "aws" {
   profile                  = "966185979698_PowerUser+IAM"
 }
 
+terraform {
+  backend "s3" {
+    encrypt = true
+    # cannot contain interpolations
+    # bucket = "${aws_s3_bucket.terraform-state-storage-s3.bucket}"
+    bucket = "the-nerd-herd-bucket"
+    # region = "${aws_s3_bucket.terraform-state-storage-s3.region}"
+    region = "us-east-1"
+    # dynamodb_table = "example-iac-terraform-state-lock-dynamo"
+    key = "terraform-state/terraform.tfstate"
+  }
+}
+
+resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
+  name = "the-nerd-herd-iac-terraform-state-lock-dynamo"
+  hash_key = "LockID"
+  read_capacity = 20
+  write_capacity = 20
+
+  attribute {
+    name = "LockID"
+    type = "S"
+  }
+
+  tags {
+    name = "DynamoDB Terraform State Lock Table"
+    proj = "the-nerd-herd-iac"
+    env = "prod"
+  }
+}
+
 resource "aws_security_group" "the-nerd-herd-sg" {
   vpc_id = var.vpc_id
   name   = join("_", ["the-nerd-herd", "sg", var.vpc_id])
