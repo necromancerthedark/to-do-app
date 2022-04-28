@@ -13,7 +13,7 @@
   
 ## Features
 
-- Drag-n-Drop cards n list
+- Drag-n-Drop cards and list
 - Material UI
 - Delete and Add Cards and Lists
 - Update/Edit List and Cards
