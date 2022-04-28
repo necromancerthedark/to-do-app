@@ -28,7 +28,7 @@ resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
     type = "S"
   }
 
-  tags {
+  tags = {
     name = "DynamoDB Terraform State Lock Table"
     proj = "the-nerd-herd-iac"
     env = "prod"
