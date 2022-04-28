@@ -1,7 +1,7 @@
 provider "aws" {
   region                   = "us-east-1"
   shared_credentials_files = ["~/.aws/credentials"]
-  profile                  = "966185979698_PowerUser+IAM"
+  profile                  = "966185979698_Admin-Account-Access"
 }
 
 terraform {
@@ -77,7 +77,7 @@ resource "aws_eks_cluster" "the-nerd-herd-cluster" {
   role_arn = aws_iam_role.the-nerd-herd-role.arn
 
   vpc_config {
-    subnet_ids = [var.subnet_id]
+    subnet_ids = [var.subnet_id,var.second_subnet_id]
   }
 
   tags = {
